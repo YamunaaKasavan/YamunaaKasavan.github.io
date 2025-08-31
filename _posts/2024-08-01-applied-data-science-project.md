@@ -58,6 +58,9 @@ https://www.kaggle.com/datasets/bhadramohit/customer-shopping-latest-trends-data
 - Discounts show minimal impact on purchase amount (No Discount ≈ $61.17 vs Discount ≈ $60.31, per regression setup)
 - Distribution confirms purchase amount skewness with concentration between $39–$81
 
+<img width="1496" height="884" alt="image" src="https://github.com/user-attachments/assets/da9e6008-6a7d-4411-a259-3c6b44263f62" />
+
+
 ### Modelling
 To segment customers and optimize discount strategies for profit maximization, unsupervised clustering was selected as the primary technique.
 #### Fundamental Model: K-Means Clustering
@@ -111,6 +114,17 @@ Ethical: Bias audit (disparate impact <1.2), transparent explanations (assumed).
 - Scalability: While the current models work on this dataset, performance may degrade with larger, more complex data. 
 - Profit Trade-offs: Although discounts may increase spend in some clusters, they may also reduce profit margins. Integration of cost data is needed to calculate net profit impact before full-scale implementation.
 
+##### DENDROGRAM
+  <img width="1236" height="838" alt="image" src="https://github.com/user-attachments/assets/81de3438-8892-4275-a29e-51d8dd5549a1" />
+##### LINEAR REGRESSION
+<img width="1624" height="880" alt="image" src="https://github.com/user-attachments/assets/531722a0-f3a4-4cf0-a04f-d0612bc9425d" />
+##### K-MEANS
+<img width="1588" height="1460" alt="image" src="https://github.com/user-attachments/assets/e0a4c3f4-bc34-4ab9-8319-b808fbceedfe" />
+
+
+
+
+
 ## Recommendation and Analysis
 To maximize profits via Objective 3, Kapital should leverage the 4-segment model (via Hierarchical Clustering, with K-Means pending) to target high-spending clusters.
 
@@ -122,15 +136,21 @@ To maximize profits via Objective 3, Kapital should leverage the 4-segment model
 ## AI Ethics
 #### Privacy: 
 - The dataset includes age, gender, and location, risking customer re-identification
-- Anonymize data and comply with PDPA to protect privacy.
+- To comply with the Personal Data Protection Act (PDPA), Kapital must anonymize data by removing direct identifiers and applying techniques like k-anonymity (k≥5) before modeling.
+- Regular privacy audits and encrypted data storage are essential to safeguard customer trust and avoid legal penalties.
 #### Fairness: 
-- Gender bias may arise if male-dominated data skews segments; ensure diverse representation and audit for disparate impact (<1.2). 
+- Gender bias is a concern, as the dataset may overrepresent one gender, potentially skewing customer segments.
+- This could lead to unfair discount targeting, favoring certain groups and exacerbating disparities (disparate impact >1.2).
+- A fairness audit using statistical parity or equal opportunity metrics is critical. Balancing the dataset or adjusting model weights for underrepresented groups can mitigate bias, ensuring equitable outcomes across demographics like age (30-50 skew) and location.
 #### Accuracy: 
-- With 3,900 rows and low R² (0.001), models may misgeneralize; validate with larger datasets and cross-validation.
+- The model’s low R² (0.001) and small dataset size suggest limited predictive power, risking inaccurate discount recommendations. With only 3,900 records, overfitting or misgeneralization is likely, especially for niche segments. Cross-validation (e.g., 5-fold) and collecting additional data (e.g., 10,000+ rows) can improve reliability. Regular accuracy assessments against real-world sales data will validate model performance, preventing misguided strategic decisions.
 #### Accountability: 
 - Unclear ownership of biased outcomes (e.g., over-discounting) requires human oversight and risk matrices.
+- If the model assigns discounts unevenly across clusters (e.g., Cluster 1 vs. 3), financial losses or customer dissatisfaction could result without a clear responsible party. Establishing a data governance team with defined roles—data scientists, business analysts, and legal advisors—is vital. A risk matrix tracking model impacts and a feedback loop for human oversight can ensure accountability.
 #### Transparency: 
-- K-Means and regression lack interpretability; use SHAP values or feature importance to explain decisions. 
+- K-Means and regression lack interpretability; use SHAP values or feature importance to explain decisions.
+- The black-box nature of K-Means and Hierarchical Clustering, combined with regression’s low interpretability (p=0.114), hinders understanding of decision-making. Stakeholders need clarity on why certain customers receive discounts. Using SHAP values or feature importance plots can reveal drivers (e.g., age, frequency), enhancing trust. Documenting the CRISP-DM process, including data preprocessing and model assumptions, ensures transparency. An AI Ethics framework, embedding these checks throughout the lifecycle, will align the project with ethical standards, fostering Kapital’s reputation and customer confidence.
 
 ## Source Codes and Datasets
-Upload your model files and dataset into a GitHub repo and add the link here. 
+https://www.kaggle.com/datasets/bhadramohit/customer-shopping-latest-trends-dataset
+
