@@ -114,11 +114,11 @@ Ethical: Bias audit (disparate impact <1.2), transparent explanations (assumed).
 - Scalability: While the current models work on this dataset, performance may degrade with larger, more complex data. 
 - Profit Trade-offs: Although discounts may increase spend in some clusters, they may also reduce profit margins. Integration of cost data is needed to calculate net profit impact before full-scale implementation.
 
-##### DENDROGRAM
+DENDROGRAM
   <img width="1236" height="838" alt="image" src="https://github.com/user-attachments/assets/81de3438-8892-4275-a29e-51d8dd5549a1" />
-##### LINEAR REGRESSION
+LINEAR REGRESSION
 <img width="1624" height="880" alt="image" src="https://github.com/user-attachments/assets/531722a0-f3a4-4cf0-a04f-d0612bc9425d" />
-##### K-MEANS
+K-MEANS
 <img width="1588" height="1460" alt="image" src="https://github.com/user-attachments/assets/e0a4c3f4-bc34-4ab9-8319-b808fbceedfe" />
 
 
